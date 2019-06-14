@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -15,6 +16,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //Bdoy parser
 app.use(bodyParser.json());
+app.use(cors());
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));

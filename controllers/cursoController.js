@@ -7,8 +7,8 @@ var request = require('request');
 var keys = require('../keys/key');
 
 module.exports = {
-    show: function (req, res) {
-        var options = {
+    cursos: function (req, res) {
+        let options = {
             method: 'GET',            
             url: keys.base_url + 'courses',
             headers: {
@@ -18,9 +18,30 @@ module.exports = {
         };
 
         request(options, function (error, response, body) {
-            if (error) throw new Error(error);
-
-            res.send(body);
+            if (error) throw new Error(error);  
+            res.send(JSON.parse(body));
         });
-    }
+    },
+
+    enrollments: function (req, res) {
+        let options = {
+            method: 'GET',            
+            url: keys.base_url + 'courses/' + req.params.course_id + '/enrollments' ,
+            headers: {
+                'cache-control': 'no-cache',
+                Authorization: keys.token
+            }
+        };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);           
+            res.send(JSON.parse(body));
+        });
+    }, 
+
+    
+
+
+
+
 }

@@ -10,7 +10,12 @@ router.get('/api', function(req, res, next) {
 });
 
 /* GET courses page. */
-router.get('/api/courses', function(req, res, next) {
-  controller.show(req,res);
+router.get('/api/courses/', function(req, res, next) {
+  controller.cursos(req,res);
 });
+
+router.get('/api/courses/:course_id/enrollments', function(req, res, next) {
+  controller.enrollments(req,res);
+});
+
 module.exports = router;

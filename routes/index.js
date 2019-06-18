@@ -18,4 +18,8 @@ router.get('/api/courses/:course_id/enrollments', function(req, res, next) {
   controller.enrollments(req,res);
 });
 
+router.get('/api/courses/:course_id/assignments', function(req, res, next) {
+  controller.enrollments(req,res);
+});
+
 module.exports = router;

@@ -19,7 +19,7 @@ router.get('/api/courses/:course_id/enrollments', function(req, res, next) {
 });
 
 router.get('/api/courses/:course_id/assignments', function(req, res, next) {
-  controller.enrollments(req,res);
+  controller.assignments(req,res);
 });
 
 module.exports = router;
